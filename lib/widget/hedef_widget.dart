@@ -8,34 +8,36 @@ class Hedeflerimwidget extends StatefulWidget {
 }
 
 class _HedeflerimwidgetState extends State<Hedeflerimwidget> {
+  TextEditingController girdi = TextEditingController();
+  List yapilacaklar = [];
+
+  elemanEkle() {
+    setState(() {
+      yapilacaklar.add(girdi.text);
+      girdi.clear();
+    });
+  }
+
+  elemanCikar() {
+    setState(() {
+      yapilacaklar.remove(girdi.text);
+      girdi.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController girdi = TextEditingController();
-    List yapilacaklar = [];
-
-    elemanEkle() {
-      setState(() {
-        yapilacaklar.add(girdi.text);
-        girdi.clear();
-      });
-    }
-
-    elemanCikar() {
-      setState(() {
-        yapilacaklar.remove(girdi.text);
-        girdi.clear();
-      });
-    }
     return Center(
       child: Column(
         children: [
           Expanded(
               child: ListView.builder(
-                itemCount: yapilacaklar.length,  //hata almamak için listenin boyutunu veriyoruz
-                itemBuilder: (context, siraNumarasi) => ListTile(
-                  title: Text(yapilacaklar[siraNumarasi]),
-                ),
-              )),
+            itemCount: yapilacaklar.length,
+            //hata almamak için listenin boyutunu veriyoruz
+            itemBuilder: (context, siraNumarasi) => ListTile(
+              title: Text(yapilacaklar[siraNumarasi]),
+            ),
+          )),
           TextField(
             controller: girdi,
           ),
@@ -43,7 +45,7 @@ class _HedeflerimwidgetState extends State<Hedeflerimwidget> {
               width: 200,
               height: 40,
               child: ElevatedButton(
-                onPressed: (){
+                onPressed: () {
                   elemanEkle();
                 },
                 style: ButtonStyle(),
