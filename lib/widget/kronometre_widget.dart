@@ -1,16 +1,17 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../pages/home/istatistik.dart';
 import '../constants/constants.dart';
 
-class KonuCaliswidget extends StatefulWidget {
-  const KonuCaliswidget({Key? key}) : super(key: key);
+class Kronometrewidget extends StatefulWidget {
+  const Kronometrewidget({Key? key}) : super(key: key);
 
   @override
-  State<KonuCaliswidget> createState() => _KonuCaliswidgetState();
+  State<Kronometrewidget> createState() => _KronometrewidgetState();
 }
 
-class _KonuCaliswidgetState extends State<KonuCaliswidget> {
+class _KronometrewidgetState extends State<Kronometrewidget> {
   int seconds = 0;
   int minutes = 0;
   int hours = 0;
@@ -72,35 +73,43 @@ class _KonuCaliswidgetState extends State<KonuCaliswidget> {
   }
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            timerText,
-            style: TextStyle(fontSize: 80.0),
-          ),
-          SizedBox(height: 20.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: _toggleTimer,
-                child: Text(isActive ? 'Durdur' : 'Başlat'),
-              ),
-              SizedBox(width: 20.0),
-              ElevatedButton(
-                onPressed: _resetTimer,
-                child: const Text('Sıfırla'),
-              ),
-              SizedBox(width: 20.0),
-              ElevatedButton(
-                onPressed: _saveTime,
-                child: const Text('Kaydet'),
-              ),
-            ],
-          )
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Konu Çalış',
+          style: GoogleFonts.courgette(),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              timerText,
+              style: TextStyle(fontSize: 80.0),
+            ),
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: _toggleTimer,
+                  child: Text(isActive ? 'Durdur' : 'Başlat'),
+                ),
+                SizedBox(width: 20.0),
+                ElevatedButton(
+                  onPressed: _resetTimer,
+                  child: const Text('Sıfırla'),
+                ),
+                SizedBox(width: 20.0),
+                ElevatedButton(
+                  onPressed: _saveTime,
+                  child: const Text('Kaydet'),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

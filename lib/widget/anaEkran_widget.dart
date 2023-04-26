@@ -5,6 +5,7 @@ import '../pages/home/istatistik.dart';
 import '../pages/home/konucalis.dart';
 import '../constants/constants.dart';
 
+
 class AnaEkranwidget extends StatefulWidget {
   const AnaEkranwidget({Key? key}) : super(key: key);
 
@@ -50,7 +51,6 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                     ),
                   ),
                 ),
-                SizedBox(width: 40,),
                 Expanded(
                   child: InkResponse(
                     containedInkWell: true,
@@ -115,7 +115,6 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                     ),
                   ),
                 ),
-                SizedBox(width: 40,),
                 Expanded(
                   child: InkResponse(
                     containedInkWell: true,
