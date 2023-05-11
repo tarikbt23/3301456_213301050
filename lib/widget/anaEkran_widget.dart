@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:studybuddy/widget/ipucu.dart';
 import 'package:studybuddy/widget/kalangun.dart';
+import 'package:studybuddy/widget/sinavlar.dart';
 import '../pages/home/denemeanaliz.dart';
 import '../pages/home/hedef.dart';
 import '../pages/home/istatistik.dart';
@@ -14,7 +16,7 @@ class AnaEkranwidget extends StatefulWidget {
 }
 
 class _AnaEkranwidgetState extends State<AnaEkranwidget> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +25,11 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
         if (dragUpdateDetails.delta.dx > 0) {
           // sağa kaydırma işlemi
           _pageController.previousPage(
-              duration: Duration(milliseconds: 500), curve: Curves.ease);
+              duration: const Duration(milliseconds: 500), curve: Curves.ease);
         } else if (dragUpdateDetails.delta.dx < 0) {
           // sola kaydırma işlemi
           _pageController.nextPage(
-              duration: Duration(milliseconds: 500), curve: Curves.ease);
+              duration: const Duration(milliseconds: 500), curve: Curves.ease);
         }
       },
       child: PageView(
@@ -48,7 +50,7 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Hedeflerim()));
+                                    builder: (context) => const Hedeflerim()));
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,8 +60,8 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                                 child: Ink.image(
                                     width: 100,
                                     height: 100,
-                                    image: const NetworkImage(
-                                        'https://media.istockphoto.com/id/1369010141/vector/%C3%B0%C3%B1%C3%B0%C3%B0%C3%B0%C3%B0%C3%B1%C3%B0%C2%B5-rgb.jpg?s=612x612&w=0&k=20&c=CfT7y0Wo0dnEf6dWZ3QdM6X3M2S8_iAcR0_CCT7kPGE=')),
+                                    image: const AssetImage(
+                                        'assets/images/tik.jpg')),
                               ),
                               const Text(
                                 'Günlük hedeflerim',
@@ -79,7 +81,7 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DenemeAnaliz()));
+                                    builder: (context) => const DenemeAnaliz()));
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,8 +91,8 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                                 child: Ink.image(
                                     width: 100,
                                     height: 100,
-                                    image: const NetworkImage(
-                                        'https://media.istockphoto.com/id/839310238/tr/vekt%C3%B6r/%C3%A7alar-saat.jpg?s=1024x1024&w=is&k=20&c=womFe_sLR1g6DadMpi7wLWGFya32dPXhJO6YNJafcIg=')),
+                                    image: const AssetImage(
+                                        'assets/images/calarsaat.jpg')),
                               ),
                               const Text(
                                 'Deneme Analizlerim',
@@ -117,7 +119,7 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => KonuCalis()));
+                                    builder: (context) => const KonuCalis()));
                           },
                           // Add image & text
                           child: Column(
@@ -128,8 +130,8 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                                 child: Ink.image(
                                     width: 100,
                                     height: 100,
-                                    image: const NetworkImage(
-                                        'https://static.vecteezy.com/system/resources/previews/007/505/068/original/cartoon-illustration-of-girl-studying-online-from-home-vector.jpg')),
+                                    image: const AssetImage(
+                                        'assets/images/derscalis.jpg')),
                               ),
                               const Text(
                                 'Konu çalış',
@@ -160,8 +162,8 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                                 child: Ink.image(
                                     width: 100,
                                     height: 100,
-                                    image: const NetworkImage(
-                                        'https://thumbs.dreamstime.com/b/businessman-looking-complicated-statistics-38277758.jpg')),
+                                    image: const AssetImage(
+                                        'assets/images/istatistik.jpg')),
                               ),
                               const Text(
                                 'İstatistiklerim',
@@ -194,7 +196,7 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Kalangun()));
+                                    builder: (context) => const Kalangun()));
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -204,8 +206,8 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                                 child: Ink.image(
                                     width: 100,
                                     height: 100,
-                                    image: const NetworkImage(
-                                        'https://media.istockphoto.com/id/1284999664/tr/vekt%C3%B6r/simge-sayfa-takvimi-zamanlama-son-tarih-tarih-uygulama.jpg?s=612x612&w=0&k=20&c=uVz26fuvtMUeJ1RylNb2A0rmeYeXI-DqyVddmZ2hwCI=')),
+                                    image: const AssetImage(
+                                        'assets/images/kalangun.jpg')),
                               ),
                               const Text(
                                 'Sınava Kaç Gün Var ?',
@@ -225,7 +227,7 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DenemeAnaliz()));
+                                    builder: (context) => const IpucuView()));
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -235,11 +237,49 @@ class _AnaEkranwidgetState extends State<AnaEkranwidget> {
                                 child: Ink.image(
                                     width: 100,
                                     height: 100,
-                                    image: const NetworkImage(
-                                        'https://media.istockphoto.com/id/1132400438/vector/lit-electric-light-bulb-illustration-isolated-on-white-background-vector.jpg?s=612x612&w=0&k=20&c=E-yiyby7q9nB2NeEHkgwuBrw5kqqwbAQiJV5YnQrmK8=')),
+                                    image: const AssetImage(
+                                        'assets/images/ipucu.jpg')),
                               ),
                               const Text(
                                 'Günlük İpucu',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(height: 10)
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: InkResponse(
+                          containedInkWell: true,
+                          highlightShape: BoxShape.rectangle,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Sinavlar()));
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(50.0),
+                                child: Ink.image(
+                                    width: 100,
+                                    height: 100,
+                                    image: const AssetImage(
+                                        'assets/images/kalangun.jpg')),
+                              ),
+                              const Text(
+                                'Geçmiş Sınavlar',
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.bold),
                               ),

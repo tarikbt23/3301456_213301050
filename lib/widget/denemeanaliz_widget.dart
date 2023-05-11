@@ -1,4 +1,54 @@
 import 'package:flutter/material.dart';
+import '../utils/file_utils.dart';
+
+class DenemeAnalizwidget extends StatefulWidget {
+  const DenemeAnalizwidget({super.key});
+
+  final String title = "File Operations";
+
+  @override
+  _DenemeAnalizwidgetState createState() => _DenemeAnalizwidgetState();
+}
+
+class _DenemeAnalizwidgetState extends State<DenemeAnalizwidget> {
+  String fileContents = "Veri Yok";
+  final myController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: myController,
+            ),
+          ),
+          ElevatedButton(
+            child: const Text("Dosyaya Kaydet"),
+            onPressed: () {
+              FileUtils.saveToFile(myController.text);
+            },
+          ),
+          ElevatedButton(
+            child: const Text("Dosyadan Oku"),
+            onPressed: () {
+              FileUtils.readFromFile().then((contents) {
+                setState(() {
+                  fileContents = contents;
+                });
+              });
+            },
+          ),
+          Text(fileContents),
+        ],
+      ),
+    );
+  }
+}
+/*import 'package:flutter/material.dart';
 
 class DenemeAnalizwidget extends StatefulWidget {
   const DenemeAnalizwidget({Key? key}) : super(key: key);
@@ -63,4 +113,4 @@ class _DenemeAnalizwidgetState extends State<DenemeAnalizwidget> {
       ),
     );
   }
-}
+}*/
