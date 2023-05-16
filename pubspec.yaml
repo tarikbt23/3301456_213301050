@@ -42,6 +42,7 @@ dependencies:
   path_provider: ^2.0.14
   http: ^0.13.6
   open_filex: ^4.3.2
+  typed_data: ^1.3.2
 
 dev_dependencies:
   flutter_test:
