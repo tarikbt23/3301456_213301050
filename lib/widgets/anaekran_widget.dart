@@ -5,7 +5,63 @@ import '../views/home/ipucu_view.dart';
 import '../views/home/istatistik_view.dart';
 import '../views/home/kalangun_view.dart';
 import '../views/home/konucalis_view.dart';
+import '../views/menu/ayarlar_view.dart';
+import '../views/menu/hakkimizda_view.dart';
+import '../views/menu/iletisim_view.dart';
 import '../views/sinavlar.dart';
+
+class MenuDrawer extends StatelessWidget {
+  const MenuDrawer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: Colors.lightBlue[50],
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.purple,
+            ),
+            child: Center(
+              child: Text(
+                'MENÜ',
+                style: TextStyle(
+                  color: Colors.lightBlue[50],
+                  fontSize: 24,
+                ),
+              ),
+            ),
+          ),
+          ListTile(
+            title: Text('Ayarlar'),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Ayarlar()));
+            },
+          ),
+          ListTile(
+            title: Text('İletişim'),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Iletisim()));
+            },
+          ),
+          ListTile(
+            title: Text('Hakkımızda'),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Hakkimizda()));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class Sayfa1Widget extends StatelessWidget {
   const Sayfa1Widget({
