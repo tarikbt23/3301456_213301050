@@ -147,6 +147,7 @@ class HedeflerimExpanded extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => const Hedeflerim()));
         },
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -189,6 +190,7 @@ class IstatistikExpanded extends StatelessWidget {
                   builder: (context) =>
                   const Istatistik()));
         },
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -230,7 +232,7 @@ class KonuCalisExpanded extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => const KonuCalis()));
         },
-        // Add image & text
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -272,6 +274,7 @@ class DenemeAnalizExpanded extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => const DenemeAnaliz()));
         },
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -313,6 +316,7 @@ class SinavlarExpanded extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => Sinavlar()));
         },
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -354,6 +358,7 @@ class IpucuExpanded extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => const IpucuView()));
         },
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -395,6 +400,7 @@ class KalanGunExpanded extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => const Kalangun()));
         },
+        onTapCancel: (){},
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

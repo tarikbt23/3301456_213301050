@@ -44,6 +44,7 @@ class AytExpanded extends StatelessWidget {
                   );
                 }
               },
+              onTapCancel: (){},
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -83,6 +84,7 @@ class TytExpanded extends StatelessWidget {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const KonuCalisTyt()));
               },
+              onTapCancel: (){},
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
