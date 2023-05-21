@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../views/kronometre_viewdart';
+import '../views/home/konucalis/kronometre_view.dart';
 
 class SozListView extends StatelessWidget {
   const SozListView({

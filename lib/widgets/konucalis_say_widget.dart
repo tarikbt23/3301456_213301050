@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../views/home/konucalis/kronometre_view.dart';
 
-import '../views/kronometre_viewdart';
 
 class AytSayListView extends StatelessWidget {
   const AytSayListView({
