@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studybuddy/views/home/kitap_view.dart';
 import '../views/home/denemeanaliz_view.dart';
 import '../views/home/hedef_view.dart';
 import '../views/home/ipucu_view.dart';
@@ -120,6 +121,7 @@ class Sayfa2Widget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                KitapExpanded(),
                 SinavlarExpanded(),
               ],
             ),
@@ -288,6 +290,48 @@ class DenemeAnalizExpanded extends StatelessWidget {
             ),
             const Text(
               'Deneme Analizlerim',
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10)
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class KitapExpanded extends StatelessWidget {
+  const KitapExpanded({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: InkResponse(
+        containedInkWell: true,
+        highlightShape: BoxShape.rectangle,
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const Kitapp()));
+        },
+        onTapCancel: (){},
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: Ink.image(
+                  width: 100,
+                  height: 100,
+                  image: const AssetImage(
+                      'assets/images/kitap.jpg')),
+            ),
+            const Text(
+              'Kitap Önerileri',
               style: TextStyle(
                   fontSize: 20, fontWeight: FontWeight.bold),
             ),
