@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
 import '../views/home/anaEkran_view.dart';
 import '../views/auth/kayitol_view.dart';
 
@@ -10,6 +9,7 @@ class LoginFlexible extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey2 = GlobalKey<FormState>();
     return Flexible(
       flex: 1,
       child: Form(
@@ -69,6 +69,7 @@ class LoginElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey2 = GlobalKey<FormState>();
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.purple,

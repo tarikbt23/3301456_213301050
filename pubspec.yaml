@@ -38,6 +38,8 @@ dependencies:
   babstrap_settings_screen: ^0.1.5+1
   google_fonts: ^4.0.3
   firebase_core: ^2.10.0
+  firebase_auth:
+  cloud_firestore:
   shared_preferences: ^2.1.0
   path_provider: ^2.0.14
   http: ^0.13.6

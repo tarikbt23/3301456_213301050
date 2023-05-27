@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../constants/constants.dart';
 import 'calisilan_sure_view.dart';
 
 class Kronometrewidget extends StatefulWidget {
@@ -12,6 +11,7 @@ class Kronometrewidget extends StatefulWidget {
 }
 
 class _KronometrewidgetState extends State<Kronometrewidget> {
+  bool isActive = false;
   int seconds = 0;
   int minutes = 0;
   int hours = 0;

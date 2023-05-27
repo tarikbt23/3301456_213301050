@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../constants/constants.dart';
 import '../../widgets/kayitol_widget.dart';
 
 class Kaydol extends StatefulWidget {
@@ -11,6 +10,7 @@ class Kaydol extends StatefulWidget {
 }
 
 class _KaydolState extends State<Kaydol> {
+  final formKey1 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
