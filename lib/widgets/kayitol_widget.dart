@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 
 class TelNoTextFormField extends StatelessWidget {
@@ -112,4 +113,4 @@ class KayitElevatedButton extends StatelessWidget {
       child: const Text('Kayıt ol'),
     );
   }
-}
+}*/

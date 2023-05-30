@@ -21,25 +21,23 @@ class AytExpanded extends StatelessWidget {
               containedInkWell: true,
               highlightShape: BoxShape.rectangle,
               onTap: () async {
+                final navigator = Navigator.of(context); //"Don't use 'BuildContext's across async gaps" uyarısını almamak için
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 bool switch1Value = prefs.getBool('switch1') ?? false;
                 bool switch2Value = prefs.getBool('switch2') ?? false;
                 bool switch3Value = prefs.getBool('switch3') ?? false;
                 if (switch1Value) {
-                  Navigator.push(
-                    context,
+                  navigator.push(
                     MaterialPageRoute(builder: (context) => const KonuCalisSay()),
                   );
                 }
                 if (switch2Value) {
-                  Navigator.push(
-                    context,
+                  navigator.push(
                     MaterialPageRoute(builder: (context) => const KonuCalisSoz()),
                   );
                 }
                 if (switch3Value) {
-                  Navigator.push(
-                    context,
+                  navigator.push(
                     MaterialPageRoute(builder: (context) => const KonuCalisEa()),
                   );
                 }
