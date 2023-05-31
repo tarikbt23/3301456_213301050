@@ -5,34 +5,36 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 class Sinavlar extends StatefulWidget {
+  const Sinavlar({super.key});
+
   @override
-  _SinavlarState createState() => _SinavlarState();
+  SinavlarState createState() => SinavlarState();
 }
 
-class _SinavlarState extends State<Sinavlar> {
-  String _filePath = "";
+class SinavlarState extends State<Sinavlar> {
+  String filePath = "";
 
-  Future<String> get _localDevicePath async {
+  Future<String> get localDevicePath async {
     final devicePath = await getApplicationDocumentsDirectory();
     return devicePath.path;
   }
 
-  Future<File> _localFile({required String path, required String type}) async {
-    String path = await _localDevicePath;
+  Future<File> localFile({required String path, required String type}) async {
+    String path = await localDevicePath;
 
     var newPath = await Directory("$path/$path").create();
     return File("${newPath.path}/cevahir.$type");
   }
 
-  Future _downloadSamplePDF() async {
+  Future downloadSamplePDF() async {
     final response = await http.get(Uri.parse(
         "https://uzemegitim.selcuk.edu.tr/kilavuzlar/ogrencigiris.pdf"));
     if (response.statusCode == 200) {
-      final file = await _localFile(path: "pdfs", type: "pdf");
+      final file = await localFile(path: "pdfs", type: "pdf");
       final saveFile = await file.writeAsBytes(response.bodyBytes);
       print("Dosya yazma işlemi tamamlandı. Dosyanın yolu: ${saveFile.path}");
       setState(() {
-        _filePath = saveFile.path;
+        filePath = saveFile.path;
       });
     } else {
       print(response.statusCode);
@@ -40,20 +42,20 @@ class _SinavlarState extends State<Sinavlar> {
   }
 
   Future _downloadSampleVideo() async {
-    final _response = await http
+    final response = await http
         .get(Uri.parse("https://samplelib.com/lib/download/mp4/sample-5s.mp4"));
-    if (_response.statusCode == 200) {
-      final _file = await _localFile(
+    if (response.statusCode == 200) {
+      final file = await localFile(
         path: "mp4s",
         type: "mp4",
       );
-      final _saveFile = await _file.writeAsBytes(_response.bodyBytes);
-      print("Dosya yazma işlemi tamamlandı. Dosyanın yolu: ${_saveFile.path}");
+      final saveFile = await file.writeAsBytes(response.bodyBytes);
+      print("Dosya yazma işlemi tamamlandı. Dosyanın yolu: ${saveFile.path}");
       setState(() {
-        _filePath = _saveFile.path;
+        filePath = saveFile.path;
       });
     } else {
-      print(_response.statusCode);
+      print(response.statusCode);
     }
   }
 
@@ -68,7 +70,7 @@ class _SinavlarState extends State<Sinavlar> {
               icon: Icon(Icons.file_download),
               label: Text("Örnek Pdf İndir"),
               onPressed: () {
-                _downloadSamplePDF();
+                downloadSamplePDF();
               },
             ),
             TextButton.icon(
@@ -80,14 +82,14 @@ class _SinavlarState extends State<Sinavlar> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(_filePath),
+              child: Text(filePath),
             ),
             TextButton.icon(
               icon: Icon(Icons.tv),
               label: Text("İndirilen Dosyayı Göster"),
               onPressed: () async {
-                final _openFile = await OpenFilex.open(_filePath);
-                print(_openFile);
+                final openFile = await OpenFilex.open(filePath);
+                print(openFile);
               },
             ),
           ],
