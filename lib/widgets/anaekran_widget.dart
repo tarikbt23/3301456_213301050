@@ -147,7 +147,7 @@ class HedeflerimExpanded extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const Hedeflerim()));
+                  builder: (context) => Hedeflerim()));
         },
         onTapCancel: (){},
         child: Column(
@@ -162,7 +162,7 @@ class HedeflerimExpanded extends StatelessWidget {
                       'assets/images/tik.jpg')),
             ),
             const Text(
-              'Günlük hedeflerim',
+              'Hedeflerim',
               style: TextStyle(
                   fontSize: 20, fontWeight: FontWeight.bold),
             ),
@@ -289,7 +289,7 @@ class DenemeAnalizExpanded extends StatelessWidget {
                       'assets/images/calarsaat.jpg')),
             ),
             const Text(
-              'Deneme Analizlerim',
+              'Deneme Analizi',
               style: TextStyle(
                   fontSize: 20, fontWeight: FontWeight.bold),
             ),
