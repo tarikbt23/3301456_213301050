@@ -24,4 +24,14 @@ class FileUtils {
       return "";
     }
   }
+  static Future<void> deleteFile() async {
+    try {
+      final file = await getFile;
+      if (await file.exists()) {
+        await file.delete();
+      }
+    } catch (e) {
+      print("Dosya silinirken bir hata oluştu: $e");
+    }
+  }
 }

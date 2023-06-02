@@ -11,7 +11,7 @@ class HedefProvider with ChangeNotifier {
   String? _title;
   String? _description;
 
-  var uuid = Uuid();
+  var uuid = const Uuid();
 
   String? get id => _id;
 

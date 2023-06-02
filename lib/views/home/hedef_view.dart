@@ -9,6 +9,8 @@ class Hedeflerim extends StatelessWidget {
   String title = "";
   String description = "";
 
+  Hedeflerim({super.key});
+
   @override
   Widget build(BuildContext context) {
     final hedef = context.watch<List<HedefModel>>();
@@ -47,7 +49,7 @@ class Hedeflerim extends StatelessWidget {
         child: const Icon(Icons.add),
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => EditHedef()));
+              .push(MaterialPageRoute(builder: (context) => const EditHedef()));
         },
       ),
     );

@@ -6,24 +6,20 @@ import '../../models/hedef_model.dart';
 class EditHedef extends StatefulWidget {
   final HedefModel? hedef;
 
-  EditHedef([this.hedef]);
+  const EditHedef([this.hedef]);
 
   @override
-  _EditHedefState createState() => _EditHedefState();
+  EditHedefState createState() => EditHedefState();
 }
 
-class _EditHedefState extends State<EditHedef> {
-  final nameController = TextEditingController();
-  final loginnameController = TextEditingController();
-  final loginpasswordController = TextEditingController();
-  final webController = TextEditingController();
+class EditHedefState extends State<EditHedef> {
+  final titleController = TextEditingController();
+  final descriptionController = TextEditingController();
 
   @override
   void dispose() {
-    nameController.dispose();
-    loginnameController.dispose();
-    loginpasswordController.dispose();
-    webController.dispose();
+    titleController.dispose();
+    descriptionController.dispose();
     super.dispose();
   }
 
@@ -31,10 +27,8 @@ class _EditHedefState extends State<EditHedef> {
   void initState() {
     if (widget.hedef == null) {
       //New Record
-      nameController.text = "";
-      loginnameController.text = "";
-      loginpasswordController.text = "";
-      webController.text = "";
+      titleController.text = "";
+      descriptionController.text = "";
       Future.delayed(Duration.zero, () {
         final hedefProvider =
         Provider.of<HedefProvider>(context, listen: false);
@@ -42,10 +36,10 @@ class _EditHedefState extends State<EditHedef> {
       });
     } else {
       //Controller Update
-      nameController.text = widget.hedef!.title!;
-      loginnameController.text = widget.hedef!.descripton!;
+      titleController.text = widget.hedef!.title!;
+      descriptionController.text = widget.hedef!.descripton!;
       //State Update
-      new Future.delayed(Duration.zero, () {
+      Future.delayed(Duration.zero, () {
         final hedefProvider =
         Provider.of<HedefProvider>(context, listen: false);
         hedefProvider.loadValues(widget.hedef!);
@@ -62,31 +56,31 @@ class _EditHedefState extends State<EditHedef> {
     return Scaffold(
       appBar: AppBar(
           title: (widget.hedef != null)
-              ? Text('Edit Domain Firm')
-              : Text('Add Domain Firm')),
+              ? const Text('Güncelle')
+              : const Text('Hedef Ekle')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
             TextField(
-              controller: nameController,
-              decoration: InputDecoration(hintText: 'Domain Firm Name'),
+              controller: titleController,
+              decoration: const InputDecoration(hintText: 'Başlık'),
               onChanged: (value) {
                 domainfirmsProvider.changeTitle(value);
               },
             ),
             TextField(
-              controller: loginnameController,
-              decoration: InputDecoration(hintText: 'Domain Firm Login Name'),
+              controller: descriptionController,
+              decoration: const InputDecoration(hintText: 'İçerik'),
               onChanged: (value) {
                 domainfirmsProvider.changeDescription(value);
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             ElevatedButton(
-              child: Text('Save'),
+              child: const Text('Kaydet'),
               onPressed: () {
                 domainfirmsProvider.saveHedef();
                 Navigator.of(context).pop();
@@ -94,7 +88,7 @@ class _EditHedefState extends State<EditHedef> {
             ),
             (widget.hedef != null)
                 ? ElevatedButton(
-              child: Text('Delete'),
+              child: const Text('Sil'),
               onPressed: () {
                 domainfirmsProvider.removeHedef(widget.hedef!.id!);
                 Navigator.of(context).pop();

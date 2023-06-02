@@ -9,7 +9,7 @@ import '../views/home/konucalis_view.dart';
 import '../views/menu/ayarlar_view.dart';
 import '../views/menu/hakkimizda_view.dart';
 import '../views/menu/iletisim_view.dart';
-import '../views/sinavlar.dart';
+import '../views/home/notlarim.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({
@@ -190,7 +190,7 @@ class IstatistikExpanded extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                  const Istatistik()));
+                  Istatistik()));
         },
         onTapCancel: (){},
         child: Column(
@@ -358,7 +358,7 @@ class SinavlarExpanded extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => Sinavlar()));
+                  builder: (context) => const Notlarim()));
         },
         onTapCancel: (){},
         child: Column(
@@ -370,10 +370,10 @@ class SinavlarExpanded extends StatelessWidget {
                   width: 100,
                   height: 100,
                   image: const AssetImage(
-                      'assets/images/kalangun.jpg')),
+                      'assets/images/notlarim.jpg')),
             ),
             const Text(
-              'Geçmiş Sınavlar',
+              'Notlarım',
               style: TextStyle(
                   fontSize: 20, fontWeight: FontWeight.bold),
             ),
