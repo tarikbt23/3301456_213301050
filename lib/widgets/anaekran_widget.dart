@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studybuddy/views/home/kitap_view.dart';
+import 'package:studybuddy/views/menu/uygulama_hakkinda_view.dart';
 import '../views/home/denemeanaliz_view.dart';
 import '../views/home/hedef_view.dart';
 import '../views/home/ipucu_view.dart';
@@ -41,21 +42,28 @@ class MenuDrawer extends StatelessWidget {
             title: Text('Ayarlar'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Ayarlar()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Ayarlar()));
             },
           ),
           ListTile(
             title: Text('İletişim'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Iletisim()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Iletisim()));
             },
           ),
           ListTile(
-            title: Text('Hakkımızda'),
+            title: Text('Geliştirici Hakkında'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Hakkimizda()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const Hakkimizda()));
+            },
+          ),
+          ListTile(
+            title: Text('Uygulama Hakkında'),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const UygulamaHakkinda()));
             },
           ),
         ],

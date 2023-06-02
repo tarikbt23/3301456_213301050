@@ -14,7 +14,7 @@ class _HakkimizdaState extends State<Hakkimizda> {
     return Scaffold(
       appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.lightBlue[50]),
-          title: Text("Hakkımızda",
+          title: Text("Geliştirici Hakkında",
             style: GoogleFonts.courgette(),)
       ),
       body: Center(
@@ -31,7 +31,17 @@ class _HakkimizdaState extends State<Hakkimizda> {
                       const SizedBox(height: 60),
                       Image.asset(
                         'assets/images/indir.jpg',
-                        scale: 1.2,
+                        scale: 1.45,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 60),
+                      Image.asset(
+                        'assets/images/logoo.jpg',
+                        scale: 6.5,
                       ),
                     ],
                   ),
@@ -40,22 +50,18 @@ class _HakkimizdaState extends State<Hakkimizda> {
             ),
             Flexible(
               flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("Geliştirici Hakkında" , style: TextStyle(fontSize: 24 , fontWeight: FontWeight.bold),),
-                      SizedBox(height: 30,),
-                      Text("Merhaba, ben Tarık Berkay TUNA",),
-                      Text("Selçuk Üniversitesi Bilgisayar Mühendisliği öğrencisiyim."),
-                      Text("Umarım ilk göz ağrım StudyBuddy uygulamasını beğenmişsinizdir :)"),
-                      Text("Mail atarak bana geri dönütte bulunabilirsiniz."),
-                    ],
-                  ),
-                ],
-              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    Text("Geliştirici Hakkında" , style: TextStyle(fontSize: 30 , fontWeight: FontWeight.bold),),
+                    SizedBox(height: 30,),
+                    Container(
+                      child: Text(""" Merhaba, ben Tarık Berkay TUNA.Selçuk Üniversitesi Bilgisayar Mühendisliği öğrencisiyim.Umarım ilk göz ağrım StudyBuddy uygulamasını beğenmişsinizdir :) Mail atarak bana geri dönütte bulunabilirsiniz.""",
+                      style: TextStyle(fontSize: 16),),
+                    ),
+                  ],
+                ),
+              )
             ),
           ],
         ),
