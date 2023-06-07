@@ -27,7 +27,7 @@ class _UygulamaHakkindaState extends State<UygulamaHakkinda> {
               style: TextStyle(fontSize: 20),),
             ),
             SizedBox(height: 10,),
-            Container(child: Text("Study Buddy, öğrencileri ders çalışırken basitçe asiste etmeye yönelik geliştirilmiş bir uygulamadır.",
+            Container(child: Text("Study Buddy, öğrencileri ders çalışırken asiste etmeye yönelik geliştirilmiş bir uygulamadır.",
             style: TextStyle(fontSize: 16),)),
             Divider(thickness: 5,),
             SizedBox(height: 10,),

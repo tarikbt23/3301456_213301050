@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../service/db_utils.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class DenemeAnaliz extends StatefulWidget {
   const DenemeAnaliz({Key? key}) : super(key: key);
@@ -11,13 +12,20 @@ class DenemeAnaliz extends StatefulWidget {
 }
 
 class _DenemeAnalizState extends State<DenemeAnaliz> {
-  // All journals
   List<Map<String, dynamic>> _deneme = [];
 
   bool _isLoading = true;
   // Veritabanindaki tum verileri cekmek icin kullanilir
   void _refreshDenemeler() async {
+    if (kIsWeb) {
+      // Web platformunda CircularProgressIndicator göster
+      setState(() {
+        _isLoading = true;
+      });
+    }
+
     final data = await SQLHelper.getItems();
+
     setState(() {
       _deneme = data;
       _isLoading = false;
@@ -132,33 +140,35 @@ class _DenemeAnalizState extends State<DenemeAnaliz> {
         ),
       ),
       body: _isLoading
+          ? kIsWeb
           ? const Center(
         child: CircularProgressIndicator(),
       )
+          : const SizedBox() // Android ve iOS platformunda CircularProgress gösterilmez
           : ListView.builder(
         itemCount: _deneme.length,
         itemBuilder: (context, index) => Card(
           color: Colors.purple[100],
           margin: const EdgeInsets.all(15),
           child: ListTile(
-              title: Text(_deneme[index]['title']),
-              subtitle: Text(_deneme[index]['description']),
-              trailing: SizedBox(
-                width: 100,
-                child: Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.edit),
-                      onPressed: () => _showForm(_deneme[index]['id']),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () =>
-                          _deleteItem(_deneme[index]['id']),
-                    ),
-                  ],
-                ),
-              )),
+            title: Text(_deneme[index]['title']),
+            subtitle: Text(_deneme[index]['description']),
+            trailing: SizedBox(
+              width: 100,
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.edit),
+                    onPressed: () => _showForm(_deneme[index]['id']),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () => _deleteItem(_deneme[index]['id']),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
