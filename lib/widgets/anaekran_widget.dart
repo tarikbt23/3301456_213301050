@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:studybuddy/views/home/kitap_view.dart';
 import 'package:studybuddy/views/menu/uygulama_hakkinda_view.dart';
@@ -19,6 +20,7 @@ class MenuDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User? user = ModalRoute.of(context)?.settings.arguments as User?;
     return Drawer(
       backgroundColor: Colors.lightBlue[50],
       child: ListView(
@@ -29,41 +31,53 @@ class MenuDrawer extends StatelessWidget {
               color: Colors.purple,
             ),
             child: Center(
-              child: Text(
-                'MENÜ',
-                style: TextStyle(
-                  color: Colors.lightBlue[50],
-                  fontSize: 24,
-                ),
-              ),
-            ),
+                child: user == null
+                    ? Text(
+                  "MENÜ",
+                  style: TextStyle(
+                      color: Colors.lightBlue[50], fontSize: 24),
+                )
+                    : ListTile(
+                    title: Text(user!.displayName!),
+                    subtitle: Text(user!.email!),
+                    leading: CircleAvatar(
+                      child: Image.network(user!.photoURL!),
+                    ))),
           ),
           ListTile(
             title: Text('Ayarlar'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Ayarlar()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Ayarlar()));
             },
           ),
           ListTile(
             title: Text('İletişim'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Iletisim()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Iletisim()));
             },
           ),
           ListTile(
             title: Text('Geliştirici Hakkında'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Hakkimizda()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Hakkimizda()));
             },
           ),
           ListTile(
             title: Text('Uygulama Hakkında'),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const UygulamaHakkinda()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const UygulamaHakkinda()));
             },
           ),
         ],

@@ -142,7 +142,7 @@ class _DenemeAnalizState extends State<DenemeAnaliz> {
       body: _isLoading
           ? kIsWeb
           ? const Center(
-        child: CircularProgressIndicator(),
+        child: Text("Bu alan web sürümünde çalışmamaktadır."),
       )
           : const SizedBox() // Android ve iOS platformunda CircularProgress gösterilmez
           : ListView.builder(

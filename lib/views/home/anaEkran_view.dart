@@ -13,17 +13,20 @@ class _AnaEkranState extends State<AnaEkran> {
   late final int seconds;
   late final int savedSeconds;
   final PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      drawer: const MenuDrawer(),
+      drawer: MenuDrawer(),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.lightBlue[50]),
         title: Center(
           child: Text(
             'StudyBuddy',
-            style: GoogleFonts.kaushanScript(textStyle: const TextStyle(fontSize: 35 , fontWeight: FontWeight.bold)),
+            style: GoogleFonts.kaushanScript(
+                textStyle:
+                    const TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
           ),
         ),
       ),
@@ -32,31 +35,20 @@ class _AnaEkranState extends State<AnaEkran> {
           if (dragUpdateDetails.delta.dx > 0) {
             // sağa kaydırma işlemi
             _pageController.previousPage(
-                duration: const Duration(milliseconds: 500), curve: Curves.ease);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease);
           } else if (dragUpdateDetails.delta.dx < 0) {
             // sola kaydırma işlemi
             _pageController.nextPage(
-                duration: const Duration(milliseconds: 500), curve: Curves.ease);
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.ease);
           }
         },
         child: PageView(
           controller: _pageController,
-          children: const [
-            Sayfa1Widget(),
-            Sayfa2Widget()
-          ],
+          children: const [Sayfa1Widget(), Sayfa2Widget()],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-

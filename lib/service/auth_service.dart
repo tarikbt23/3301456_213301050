@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:studybuddy/views/home/anaEkran_view.dart';
 
 class AuthService {
@@ -40,5 +43,22 @@ class AuthService {
       "name": name,
       "password": password
     });
+  }
+
+  Future<User?> signInWithGoogle() async {
+    // Oturum açma sürecini başlat
+    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+
+    // Süreç içerisinden bilgileri al
+    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+
+    // Kullanıcı nesnesi oluştur
+    final credential = GoogleAuthProvider.credential(accessToken: gAuth.accessToken, idToken: gAuth.idToken);
+
+    // Kullanıcı girişini sağla
+    final UserCredential userCredential = await firebaseAuth.signInWithCredential(credential);
+    log(userCredential.user!.email.toString());
+    return userCredential.user;
+
   }
 }

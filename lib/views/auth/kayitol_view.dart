@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:studybuddy/views/home/anaEkran_view.dart';
 import '../../locator.dart';
 import '../../service/auth_service.dart';
 import '../../utils/helper_functions.dart';
@@ -114,6 +115,22 @@ class _KaydolState extends State<Kaydol>
     );
   }
 
+  Widget logos() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+              onTap: () async{
+                locator.get<AuthService>().signInWithGoogle().then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => AnaEkran(), settings: RouteSettings(arguments: value))));
+              },
+              child: Image.asset('assets/images/google.png')),
+        ],
+      ),
+    );
+  }
+
 
   @override
   void initState() {
@@ -123,6 +140,7 @@ class _KaydolState extends State<Kaydol>
       inputField(_tPassword, 'Şifre', Icons.password),
       actionButton('Kayıt Ol', onTap: () => locator.get<AuthService>().signUp(context, name: _tName.text, email: _tEmail.text, password: _tPassword.text),),
       orDivider(),
+      logos(),
     ];
 
     loginContent = [

@@ -15,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "86629602490-fmjjqqo31cg9phmdl264ekv0u7as8jqb.apps.googleusercontent.com",
+          "client_id": "86629602490-i2nb0h81t8brbbbltelijafgd0junruv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.studybuddy",
+            "certificate_hash": "044f4e15bf55b249cbca1dc110247cf23a84a487"
+          }
+        },
+        {
+          "client_id": "86629602490-0c0ff6o9bjj448i8ls0movkt2plqtd3h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -28,8 +36,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "86629602490-fmjjqqo31cg9phmdl264ekv0u7as8jqb.apps.googleusercontent.com",
+              "client_id": "86629602490-0c0ff6o9bjj448i8ls0movkt2plqtd3h.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "86629602490-gbgg1vnnf1956fao8of1b41jloijpq6v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.studybuddy"
+              }
             }
           ]
         }

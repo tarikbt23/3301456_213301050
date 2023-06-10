@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/hedef_model.dart';
 
 class FirestoreHedefService {
-  FirebaseFirestore _db = FirebaseFirestore.instance;
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Future<void> saveHedef(HedefModel hedef) {
     return _db

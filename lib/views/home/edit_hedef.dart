@@ -51,7 +51,7 @@ class EditHedefState extends State<EditHedef> {
 
   @override
   Widget build(BuildContext context) {
-    final domainfirmsProvider = Provider.of<HedefProvider>(context);
+    final hedefProvider = Provider.of<HedefProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -66,14 +66,14 @@ class EditHedefState extends State<EditHedef> {
               controller: titleController,
               decoration: const InputDecoration(hintText: 'Başlık'),
               onChanged: (value) {
-                domainfirmsProvider.changeTitle(value);
+                hedefProvider.changeTitle(value);
               },
             ),
             TextField(
               controller: descriptionController,
               decoration: const InputDecoration(hintText: 'İçerik'),
               onChanged: (value) {
-                domainfirmsProvider.changeDescription(value);
+                hedefProvider.changeDescription(value);
               },
             ),
             const SizedBox(
@@ -82,7 +82,7 @@ class EditHedefState extends State<EditHedef> {
             ElevatedButton(
               child: const Text('Kaydet'),
               onPressed: () {
-                domainfirmsProvider.saveHedef();
+                hedefProvider.saveHedef();
                 Navigator.of(context).pop();
               },
             ),
@@ -90,7 +90,7 @@ class EditHedefState extends State<EditHedef> {
                 ? ElevatedButton(
               child: const Text('Sil'),
               onPressed: () {
-                domainfirmsProvider.removeHedef(widget.hedef!.id!);
+                hedefProvider.removeHedef(widget.hedef!.id!);
                 Navigator.of(context).pop();
               },
             )

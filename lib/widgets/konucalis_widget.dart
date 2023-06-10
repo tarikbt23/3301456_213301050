@@ -26,6 +26,10 @@ class AytExpanded extends StatelessWidget {
                 bool switch1Value = prefs.getBool('switch1') ?? false;
                 bool switch2Value = prefs.getBool('switch2') ?? false;
                 bool switch3Value = prefs.getBool('switch3') ?? false;
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text("Alan seçimi için ayarlar menüsünü kullanabilirsiniz :)"),
+                    ));
                 if (switch1Value) {
                   navigator.push(
                     MaterialPageRoute(builder: (context) => const KonuCalisSay()),
@@ -41,6 +45,7 @@ class AytExpanded extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const KonuCalisEa()),
                   );
                 }
+
               },
               onTapCancel: (){},
               child: Column(
