@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../service/db_utils.dart';
@@ -8,10 +7,10 @@ class DenemeAnaliz extends StatefulWidget {
   const DenemeAnaliz({Key? key}) : super(key: key);
 
   @override
-  _DenemeAnalizState createState() => _DenemeAnalizState();
+  DenemeAnalizState createState() => DenemeAnalizState();
 }
 
-class _DenemeAnalizState extends State<DenemeAnaliz> {
+class DenemeAnalizState extends State<DenemeAnaliz> {
   List<Map<String, dynamic>> _deneme = [];
 
   bool _isLoading = true;

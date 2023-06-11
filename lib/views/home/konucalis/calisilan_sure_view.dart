@@ -18,13 +18,13 @@ class CalisilanSure extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Çalışılan süre ',
               style: TextStyle(fontSize: 30 , fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Text("$hours:$minutes:$seconds",
-              style: TextStyle(fontSize: 30),)
+              style: const TextStyle(fontSize: 30),)
           ],
         ),
       ),

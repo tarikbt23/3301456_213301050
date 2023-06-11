@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Istatistik extends StatefulWidget {
-  Istatistik({super.key});
+  const Istatistik({super.key});
   List<Color> get availableColors => const <Color>[
     Colors.purple,
     Colors.yellow,
@@ -109,7 +109,7 @@ class _IstatistikState extends State<Istatistik> {
           color: isTouched ? widget.touchedBarColor : barColor,
           width: width,
           borderSide: isTouched
-              ? BorderSide(color: Colors.blue)
+              ? const BorderSide(color: Colors.blue)
               : const BorderSide(color: Colors.white, width: 0),
           backDrawRodData: BackgroundBarChartRodData(
             show: true,
@@ -154,25 +154,25 @@ class _IstatistikState extends State<Istatistik> {
             String weekDay;
             switch (group.x) {
               case 0:
-                weekDay = 'Monday';
+                weekDay = 'Pazartesi';
                 break;
               case 1:
-                weekDay = 'Tuesday';
+                weekDay = 'Salı';
                 break;
               case 2:
-                weekDay = 'Wednesday';
+                weekDay = 'Çarşamba';
                 break;
               case 3:
-                weekDay = 'Thursday';
+                weekDay = 'Perşembe';
                 break;
               case 4:
-                weekDay = 'Friday';
+                weekDay = 'Cuma';
                 break;
               case 5:
-                weekDay = 'Saturday';
+                weekDay = 'Cumartesi';
                 break;
               case 6:
-                weekDay = 'Sunday';
+                weekDay = 'Pazar';
                 break;
               default:
                 throw Error();
@@ -247,25 +247,25 @@ class _IstatistikState extends State<Istatistik> {
     Widget text;
     switch (value.toInt()) {
       case 0:
-        text = const Text('M', style: style);
+        text = const Text('Pt', style: style);
         break;
       case 1:
-        text = const Text('T', style: style);
+        text = const Text('S', style: style);
         break;
       case 2:
-        text = const Text('W', style: style);
+        text = const Text('Ç', style: style);
         break;
       case 3:
-        text = const Text('T', style: style);
+        text = const Text('Pr', style: style);
         break;
       case 4:
-        text = const Text('F', style: style);
+        text = const Text('C', style: style);
         break;
       case 5:
-        text = const Text('S', style: style);
+        text = const Text('Ct', style: style);
         break;
       case 6:
-        text = const Text('S', style: style);
+        text = const Text('Pz', style: style);
         break;
       default:
         text = const Text('', style: style);

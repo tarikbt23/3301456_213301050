@@ -18,7 +18,7 @@ class _AnaEkranState extends State<AnaEkran> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      drawer: MenuDrawer(),
+      drawer: const MenuDrawer(),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.lightBlue[50]),
         title: Center(

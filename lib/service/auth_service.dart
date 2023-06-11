@@ -1,8 +1,6 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -18,7 +16,7 @@ class AuthService {
       final UserCredential userCredential = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       if (userCredential.user != null )  {
         await _registerUser(name: name, email: email, password: password);
-        navigator.push(MaterialPageRoute(builder: (context) => AnaEkran(),));
+        navigator.push(MaterialPageRoute(builder: (context) => const AnaEkran(),));
       }
     } on FirebaseAuthException catch (e) {
       Fluttertoast.showToast(msg: e.message!, toastLength: Toast.LENGTH_LONG);
@@ -30,7 +28,7 @@ class AuthService {
     try {
       final UserCredential userCredential = await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       if (userCredential.user != null) {
-        navigator.push(MaterialPageRoute(builder: (context) => AnaEkran(),));
+        navigator.push(MaterialPageRoute(builder: (context) => const AnaEkran(),));
       }
     } on FirebaseAuthException catch(e) {
       Fluttertoast.showToast(msg: e.message!, toastLength: Toast.LENGTH_LONG);

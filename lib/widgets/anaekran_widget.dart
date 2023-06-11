@@ -27,7 +27,7 @@ class MenuDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.purple,
             ),
             child: Center(
@@ -45,24 +45,24 @@ class MenuDrawer extends StatelessWidget {
                     ))),
           ),
           ListTile(
-            title: Text('Ayarlar'),
-            trailing: Icon(Icons.keyboard_arrow_right),
+            title: const Text('Ayarlar'),
+            trailing: const Icon(Icons.keyboard_arrow_right),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Ayarlar()));
             },
           ),
           ListTile(
-            title: Text('İletişim'),
-            trailing: Icon(Icons.keyboard_arrow_right),
+            title: const Text('İletişim'),
+            trailing: const Icon(Icons.keyboard_arrow_right),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Iletisim()));
             },
           ),
           ListTile(
-            title: Text('Geliştirici Hakkında'),
-            trailing: Icon(Icons.keyboard_arrow_right),
+            title: const Text('Geliştirici Hakkında'),
+            trailing: const Icon(Icons.keyboard_arrow_right),
             onTap: () {
               Navigator.push(
                   context,
@@ -71,8 +71,8 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Uygulama Hakkında'),
-            trailing: Icon(Icons.keyboard_arrow_right),
+            title: const Text('Uygulama Hakkında'),
+            trailing: const Icon(Icons.keyboard_arrow_right),
             onTap: () {
               Navigator.push(
                   context,
@@ -99,7 +99,7 @@ class Sayfa1Widget extends StatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 HedeflerimExpanded(),
                 DenemeAnalizExpanded(),
               ],
@@ -108,7 +108,7 @@ class Sayfa1Widget extends StatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 KonuCalisExpanded(),
                 IstatistikExpanded(),
               ],
@@ -133,7 +133,7 @@ class Sayfa2Widget extends StatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 KalanGunExpanded(),
                 IpucuExpanded(),
               ],
@@ -142,7 +142,7 @@ class Sayfa2Widget extends StatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 KitapExpanded(),
                 SinavlarExpanded(),
               ],
@@ -212,7 +212,7 @@ class IstatistikExpanded extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                  Istatistik()));
+                  const Istatistik()));
         },
         onTapCancel: (){},
         child: Column(

@@ -29,9 +29,9 @@ class _KalangunState extends State<Kalangun> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("2024 YKS 'ye ", style: TextStyle(fontSize: 25)),
-            Text("$difference", style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),),
-            Text("gün kaldı.", style: TextStyle(fontSize: 25))
+            const Text("2024 YKS 'ye ", style: TextStyle(fontSize: 25)),
+            Text("$difference", style: const TextStyle(fontSize: 45, fontWeight: FontWeight.bold),),
+            const Text("gün kaldı.", style: TextStyle(fontSize: 25))
           ],
         )
       ),

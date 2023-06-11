@@ -1,116 +1,103 @@
-/*
 import 'package:flutter/material.dart';
 
-class TelNoTextFormField extends StatelessWidget {
-  const TelNoTextFormField({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: const InputDecoration(
-        hintStyle: TextStyle(fontSize: 16),
-        hintText: 'Telefon numaranız',
+Widget inputField(TextEditingController controller, String hint, IconData iconData) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
+    child: SizedBox(
+      height: 50,
+      child: Material(
+        elevation: 8,
+        shadowColor: Colors.black87,
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(30),
+        child: TextField(
+          controller: controller,
+          textAlignVertical: TextAlignVertical.bottom,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: BorderSide.none,
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            hintText: hint,
+            prefixIcon: Icon(iconData),
+          ),
+        ),
       ),
-      validator: (String? value) {
-        if (value == null || value.isEmpty) {
-          return 'Bu alan boş bırakılamaz.';
-        }
-        return null;
-      },
-    );
-  }
+    ),
+  );
 }
 
-class MailTextFormField extends StatelessWidget {
-  const MailTextFormField({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: const InputDecoration(
-        hintStyle: TextStyle(fontSize: 16),
-        hintText: 'Mail adresiniz',
-      ),
-      validator: (String? value) {
-        if (value == null || value.isEmpty) {
-          return 'Bu alan boş bırakılamaz.';
-        }
-        return null;
-      },
-    );
-  }
-}
-
-class SoyadTextFormField extends StatelessWidget {
-  const SoyadTextFormField({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: const InputDecoration(
-        hintStyle: TextStyle(fontSize: 16),
-        hintText: 'Soyadınız',
-      ),
-      validator: (String? value) {
-        if (value == null || value.isEmpty) {
-          return 'Bu alan boş bırakılamaz.';
-        }
-        return null;
-      },
-    );
-  }
-}
-
-class AdTextFormField extends StatelessWidget {
-  const AdTextFormField({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: const InputDecoration(
-        hintStyle: TextStyle(fontSize: 16),
-        hintText: 'Adınız',
-      ),
-      validator: (String? value) {
-        if (value == null || value.isEmpty) {
-          return 'Bu alan boş bırakılamaz.';
-        }
-        return null;
-      },
-    );
-  }
-}
-
-class KayitElevatedButton extends StatelessWidget {
-  const KayitElevatedButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final formKey1 = GlobalKey<FormState>();
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-      ),
+Widget actionButton(String title, {Function()? onTap}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
+    child: ElevatedButton(
       onPressed: () {
-        if (formKey1.currentState!.validate()) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text('Kayıt işlemi başarılı.')),
-          );
+        if (onTap != null) {
+          onTap();
         }
       },
-      child: const Text('Kayıt ol'),
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.symmetric(vertical: 14), backgroundColor: Colors.purple,
+        shape: const StadiumBorder(),
+        elevation: 8,
+        shadowColor: Colors.black87,
+      ),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+
+Widget orDivider() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 8),
+    child: Row(
+      children: const [
+        orDividerFlexible(),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'ya da',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        orDividerFlexible(),
+      ],
+    ),
+  );
+}
+
+class orDividerFlexible extends StatelessWidget {
+  const orDividerFlexible({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: Container(
+        height: 1,
+        color: Colors.purple,
+      ),
     );
   }
-}*/
+}
+
+Widget myColumnWidget(List<Widget> content) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: content,
+  );
+}

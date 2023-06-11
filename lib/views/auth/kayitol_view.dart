@@ -4,6 +4,7 @@ import 'package:studybuddy/views/home/anaEkran_view.dart';
 import '../../locator.dart';
 import '../../service/auth_service.dart';
 import '../../utils/helper_functions.dart';
+import '../../widgets/kayitol_widget.dart';
 import 'animations/change_screen_animation.dart';
 import 'bottom_text.dart';
 
@@ -28,93 +29,6 @@ class _KaydolState extends State<Kaydol>
   final _tEmail = TextEditingController();
   final _tPassword = TextEditingController();
 
-  Widget inputField(TextEditingController controller, String hint, IconData iconData) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
-      child: SizedBox(
-        height: 50,
-        child: Material(
-          elevation: 8,
-          shadowColor: Colors.black87,
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(30),
-          child: TextField(
-            controller: controller,
-            textAlignVertical: TextAlignVertical.bottom,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide.none,
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: hint,
-              prefixIcon: Icon(iconData),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget actionButton(String title, {Function()? onTap}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
-      child: ElevatedButton(
-        onPressed: () {
-          if (onTap != null) {
-            onTap();
-          }
-        },
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 14), backgroundColor: Colors.purple,
-          shape: const StadiumBorder(),
-          elevation: 8,
-          shadowColor: Colors.black87,
-        ),
-        child: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget orDivider() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 130, vertical: 8),
-      child: Row(
-        children: [
-          Flexible(
-            child: Container(
-              height: 1,
-              color: Colors.purple,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              'ya da',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          Flexible(
-            child: Container(
-              height: 1,
-              color: Colors.purple,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget logos() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -123,7 +37,7 @@ class _KaydolState extends State<Kaydol>
         children: [
           InkWell(
               onTap: () async{
-                locator.get<AuthService>().signInWithGoogle().then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => AnaEkran(), settings: RouteSettings(arguments: value))));
+                locator.get<AuthService>().signInWithGoogle().then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AnaEkran(), settings: RouteSettings(arguments: value))));
               },
               child: Image.asset('assets/images/google.png')),
         ],
@@ -190,16 +104,8 @@ class _KaydolState extends State<Kaydol>
               Container(
                 child: Lottie.network("https://assets10.lottiefiles.com/packages/lf20_w6y7r1ap.json"),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: createAccountContent,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: loginContent,
-              ),
+              myColumnWidget(createAccountContent),
+              myColumnWidget(loginContent),
               const Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
@@ -214,3 +120,5 @@ class _KaydolState extends State<Kaydol>
     );
   }
 }
+
+

@@ -20,20 +20,20 @@ class _UygulamaHakkindaState extends State<UygulamaHakkinda> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Container(
               color: Colors.purple[100],
-              child: Text("Study Buddy Nedir ?",
+              child: const Text("Study Buddy Nedir ?",
               style: TextStyle(fontSize: 20),),
             ),
-            SizedBox(height: 10,),
-            Container(child: Text("Study Buddy, öğrencileri ders çalışırken asiste etmeye yönelik geliştirilmiş bir uygulamadır.",
-            style: TextStyle(fontSize: 16),)),
-            Divider(thickness: 5,),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
+            const Text("Study Buddy, öğrencileri ders çalışırken asiste etmeye yönelik geliştirilmiş bir uygulamadır.",
+            style: TextStyle(fontSize: 16),),
+            const Divider(thickness: 5,),
+            const SizedBox(height: 10,),
             Container(
               color: Colors.purple[100],
-              child: Text("Study Buddy İle Neler Yapılabilir?",
+              child: const Text("Study Buddy İle Neler Yapılabilir?",
                 style: TextStyle(fontSize: 20),),
             ),
             const HakkimizdaListTile(title: (Text("Hedeflerinizi yazabilirsiniz")),),
@@ -53,12 +53,12 @@ class _UygulamaHakkindaState extends State<UygulamaHakkinda> {
 class HakkimizdaListTile extends StatelessWidget {
   final Widget title;
 
-  const HakkimizdaListTile({required this.title});
+  const HakkimizdaListTile({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.check),
+      leading: const Icon(Icons.check),
       title: title,
     );
   }

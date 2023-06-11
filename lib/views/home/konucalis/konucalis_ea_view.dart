@@ -19,7 +19,7 @@ class _KonuCalisEaState extends State<KonuCalisEa> {
           style: GoogleFonts.courgette(),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: AytEaListView(),
       ),
     );

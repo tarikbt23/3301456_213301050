@@ -9,6 +9,6 @@ Future<List<Ipucu>> fetchData() async {
     List jsonResponse = json.decode(response.body);
     return jsonResponse.map((data) => Ipucu.fromJson(data)).toList();
   } else {
-    throw Exception('Unexpected error occured!');
+    throw Exception('Beklenmedik bir hata oluştu!');
   }
 }

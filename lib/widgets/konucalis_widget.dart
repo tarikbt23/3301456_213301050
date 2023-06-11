@@ -27,8 +27,8 @@ class AytExpanded extends StatelessWidget {
                 bool switch2Value = prefs.getBool('switch2') ?? false;
                 bool switch3Value = prefs.getBool('switch3') ?? false;
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: const Text("Alan seçimi için ayarlar menüsünü kullanabilirsiniz :)"),
+                    const SnackBar(
+                      content: Text("Alan seçimi için ayarlar menüsünü kullanabilirsiniz :)"),
                     ));
                 if (switch1Value) {
                   navigator.push(

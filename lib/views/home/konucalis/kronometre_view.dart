@@ -22,7 +22,7 @@ class _KronometrewidgetState extends State<Kronometrewidget> {
     setState(() {
       isActive = !isActive;
       if (isActive) {
-        _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+        _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
           setState(() {  //setState methodu içindeki nesnenin durumunun değişken olduğunu derleyiciye belirtir.
             seconds++;
             if(seconds == 59){
@@ -86,9 +86,9 @@ class _KronometrewidgetState extends State<Kronometrewidget> {
           children: <Widget>[
             Text(
               timerText,
-              style: TextStyle(fontSize: 80.0),
+              style: const TextStyle(fontSize: 80.0),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -96,12 +96,12 @@ class _KronometrewidgetState extends State<Kronometrewidget> {
                   onPressed: _toggleTimer,
                   child: Text(isActive ? 'Durdur' : 'Başlat'),
                 ),
-                SizedBox(width: 20.0),
+                const SizedBox(width: 20.0),
                 ElevatedButton(
                   onPressed: _resetTimer,
                   child: const Text('Sıfırla'),
                 ),
-                SizedBox(width: 20.0),
+                const SizedBox(width: 20.0),
                 ElevatedButton(
                   onPressed: _saveTime,
                   child: const Text('Kaydet'),

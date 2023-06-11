@@ -78,10 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
               'StudyBuddy',
               style: GoogleFonts.kaushanScript(
                   textStyle:
-                      TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+                      const TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
             ),
           ),
         ),
-        body: Kaydol());
+        body: const Kaydol());
   }
 }
