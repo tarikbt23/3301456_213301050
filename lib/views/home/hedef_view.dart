@@ -36,8 +36,8 @@ class Hedeflerim extends StatelessWidget {
                     color: Colors.purple[100],
                     size: 36.0,
                   ),
-                  title: Text(hedef[index].title!),
-                  subtitle: Text(hedef[index].descripton!),
+                  title: Text(hedef[index].title ?? "Başlıksız"),
+                  subtitle: Text(hedef[index].descripton ?? ""),
                   isThreeLine: true,
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
