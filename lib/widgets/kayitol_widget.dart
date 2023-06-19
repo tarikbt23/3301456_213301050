@@ -12,6 +12,7 @@ Widget inputField(TextEditingController controller, String hint, IconData iconDa
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(30),
         child: TextField(
+          obscureText: true,
           controller: controller,
           textAlignVertical: TextAlignVertical.bottom,
           decoration: InputDecoration(

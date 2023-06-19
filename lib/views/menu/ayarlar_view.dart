@@ -114,6 +114,3 @@ class _AyarlarState extends State<Ayarlar> {
     );
   }
 }
-
-
-

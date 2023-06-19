@@ -31,17 +31,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        Provider<FirestoreHedefService>(
-          create: (_) => FirestoreHedefService(),
-        ),
-        ChangeNotifierProvider(create: (context) => HedefProvider()),
-        StreamProvider(
-          create: (context) =>
-              context.read<FirestoreHedefService>().getHedef(),
-          initialData: null,
-        ),
-      ],
+        providers: [
+          Provider<FirestoreHedefService>(
+            create: (_) => FirestoreHedefService(),
+          ),
+          ChangeNotifierProvider(create: (context) => HedefProvider()),
+          StreamProvider(
+            create: (context) =>
+                context.read<FirestoreHedefService>().getHedef(),
+            initialData: null,
+          ),
+        ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'StudyBuddy',
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'StudyBuddy',
               style: GoogleFonts.kaushanScript(
                   textStyle:
-                      const TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+                  const TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
             ),
           ),
         ),
